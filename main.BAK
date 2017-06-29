@@ -2,8 +2,9 @@
  CLEAR ALL 
  CLEAR ALL memory 
  
- PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate
+ PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser
  
+ gcUser = ""
  
  LOCAL lcsys16,lcprogram,lcpath,lcolddir
 	lcsys16=SYS(16,1)
