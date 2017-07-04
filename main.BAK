@@ -109,7 +109,7 @@ PROCEDURE errhand
 *!*	   FOR n = 1 TO 7  && Display all elements of the array
 *!*	      ? aErrorArray(n)
 *!*	   ENDFOR
-  MESSAGEBOX(aErrorArray(2))
+  MESSAGEBOX(aErrorArray(2),16,'Error from backend database')
 RETURN 
 
 

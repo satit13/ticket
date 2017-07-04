@@ -1,0 +1,158 @@
+Clear
+
+************************************************
+Procedure Insertdata
+Wait Window Alias()+'.'+Alltrim(Str(Recno())) Nowa
+nfield=Fcount()
+lccommand="set dateformat dmy  insert "+Alltrim(Alias())+" ("
+lFiled =""
+For initEnv = 1 To nfield
+	If Upper(Alltrim(Fields(initEnv))) != 'ROWORDER'
+		lFiled=lFiled+Iif(Len(Alltrim(lFiled))=0,'',',')+Fields(initEnv)
+	Endif
+Endfor
+lccommand=lccommand+lFiled+" )"
+lccommand = lccommand+" values ("
+lFiled=''
+NextChar=''
+For initEnv = 1 To nfield
+	Cflage=0
+	Tflage=0
+	NFlage=0
+	MFlage=0
+	If Upper(Alltrim(Fields(initEnv))) != 'ROWORDER'
+		Do Case
+		Case Type(Fields(initEnv)) = 'N'Or Type(Fields(initEnv)) = 'Y'   && Numeric or money
+			lcx="Nextchar=ALLTRIM(STR("+Fields(initEnv)+",15,2))"
+			Cflage=0
+			Tflage=0
+			NFlage=1
+		Case Type(Fields(initEnv)) = 'C' Or Type(Fields(initEnv)) = 'M'    && Char or Memo field
+
+			lcx="Nextchar=ALLTRIM("+Fields(initEnv)+")"
+			Cflage=1
+			Tflage=0
+			NFlage=0
+		Case Type(Fields(initEnv)) = 'T'      && Datetime field
+			lcx="Nextchar=DTOC(TTOD("+Fields(initEnv)+"))"
+			Cflage=0
+			Tflage=1
+			NFlage=0
+		Case Type(Fields(initEnv)) = 'D'      && Date field
+			lcx="Nextchar=DTOC("+Fields(initEnv)+")"
+			Cflage=0
+			Tflage=1
+			NFlage=0
+		Endcase
+		&lcx
+&& กรอง field ที่เป็น char และมีอักษร '  อยู่ใน field ทำให้ insert date Error ออกไปก่อน
+		If !Isnull(NextChar)
+
+			If ("'"$NextChar)
+				xnextchar=''
+				For initEnv = 1 To Len(Alltrim(NextChar))
+					If Substr(NextChar,initEnv,1)="'"
+						xnextchar=xnextchar+' '
+					Else
+						xnextchar=xnextchar+Substr(NextChar,initEnv,1)
+					Endif
+				Endfor
+*MESSAGEBOX( 'old : '+nextchar+CHR(13)+'New : '+xnextchar)
+
+				NextChar=xnextchar
+			Endif
+
+		Endif
+
+		Do Case
+		Case Cflage=1
+			If Isnull(NextChar)
+				NextChar=''
+			Endif
+			lFiled=lFiled+"'"+NextChar+"'"
+		Case NFlage=1
+			If Isnull(NextChar)
+				NextChar='0'
+			Endif
+			lFiled=lFiled+NextChar
+		Case Tflage=1
+			If Isnull(NextChar)
+				NextChar='01/01/1900'
+			Endif
+			lFiled=lFiled+"'"+NextChar+"'"
+		Endcase
+		If initEnv < nfield
+			lFiled=lFiled+","
+		Endif
+	Endif
+Endfor
+lccommand=lccommand+lFiled+" )"
+*MESSAGEBOX(lccommand)
+*cancel
+result=SQLExec(dbconn,lccommand)
+
+*!*	lcGenStr="lnRoworder="+Alias()+".roworder"
+*!*	&lcGenStr
+*!*	lcTable=Alias()
+
+*!*	Do Case
+*!*	Case  Alltrim(Upper(Alias()))=='BCINVDEBITNOTE1'
+*!*		lcdocno=Alltrim(debitnoteno)+'-'+Alltrim(invoiceno)
+*!*	Case Alltrim(Upper(Alias()))== 'BCINVCREDITNOTE'
+*!*		lcdocno=Alltrim(creditnoteno)+'-'+Alltrim(invoiceno)
+*!*	Case Alltrim(Upper(Alias()))== 'BCINVSTKREFUND'
+*!*		lcdocno=Alltrim(stkrefundno)+'-'+Alltrim(invoiceno)
+*!*	Case 	Alltrim(Upper(Alias()))=='BCAR' Or  Alltrim(Upper(Alias()))=='BCAP'  Or  Alltrim(Upper(Alias()))=='BCITEM'
+*!*		lcdocno = Alltrim(Code)
+*!*	Case Alltrim(Upper(Alias()))=='BCSTKPACKING'
+*!*		lcdocno=Alltrim(itemcode)+'-'+Alltrim(unitcode)
+*!*	Case  Alltrim(Upper(Alias()))=='BCSTKITEMWAREHOUSE'
+*!*		lcdocno=Alltrim(itemcode)+'-'+Alltrim(whcode)
+*!*	Case  Alltrim(Upper(Alias()))=='BCITEMWAREHOUSE'
+*!*		lcdocno=Alltrim(itemcode)+'-'+Alltrim(whcode)
+*!*	Otherwise
+*!*		lcdocno=docno
+*!*	Endcase
+
+If result<0   && Error Sql
+
+	MESSAGEBOX(errhand())
+*	lcError=Substr(lcError,Rat(':',lcError)+1,Len(Alltrim(lcError))-Rat(':',lcError))
+*	Insert Into trflog (trfno,roworder,Table,Complete,Errdesc,docno,trfdate) Values (mtrfno,lnRoworder,lcTable,.F.,lcError,lcdocno,Datetime())
+	Return .F.
+*Else
+*	Insert Into trflog (trfno,roworder,Table,Complete,Errdesc,docno,trfdate) Values (mtrfno,lnRoworder,lcTable,.T.,'Complete',lcdocno,Datetime())
+ENDIF
+
+Return .T.
+Endproc
+*******
+Procedure errhand
+	= Aerror(aErrorArray)  && Data from most recent error
+	Return aErrorArray(2)
+Endproc
+
+**********************************
+Procedure    SetIdentityOff
+Parameters LcTablename
+result=SQLExec(b,"SET IDENTITY_INSERT "+LcTablename +" OFF ")
+If result<0
+	Do errhand
+	Return .F.
+Else
+	Return .T.
+Endif
+Endproc
+
+*****************************
+Procedure  SETIdentAlltableOff
+Select tablelist
+Go Top
+Do While !Eof()
+	Wait Window 'Set Identity off table : '+Alltrim(tablelist.Name) Nowa
+	Do  SetIdentityOff With Alltrim(tablelist.tablename)
+	Skip
+Enddo
+Return
+********************************
+
