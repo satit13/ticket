@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 03/07/2017             MAIN.MPR               12:01:34  
+*       * 05/07/2017             MAIN.MPR               11:34:58  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,19 +26,19 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _4yf0pryh4 OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
+DEFINE PAD _4yh0otr53 OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
 	KEY ALT+F, ""
-DEFINE PAD _4yf0pryh5 OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
+DEFINE PAD _4yh0otr54 OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
 	KEY ALT+T, ""
-DEFINE PAD _4yf0pryh6 OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
+DEFINE PAD _4yh0otr55 OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _4yf0pryh7 OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
+DEFINE PAD _4yh0otr56 OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
 	KEY ALT+E, ""
-ON PAD _4yf0pryh4 OF _MSYSMENU ACTIVATE POPUP file
-ON PAD _4yf0pryh5 OF _MSYSMENU ACTIVATE POPUP task
-ON PAD _4yf0pryh6 OF _MSYSMENU ACTIVATE POPUP report
-ON SELECTION PAD _4yf0pryh7 OF _MSYSMENU ;
-	DO _4yf0pryh8 ;
+ON PAD _4yh0otr53 OF _MSYSMENU ACTIVATE POPUP file
+ON PAD _4yh0otr54 OF _MSYSMENU ACTIVATE POPUP task
+ON PAD _4yh0otr55 OF _MSYSMENU ACTIVATE POPUP report
+ON SELECTION PAD _4yh0otr56 OF _MSYSMENU ;
+	DO _4yh0otr57 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP file MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -46,13 +46,13 @@ DEFINE BAR 1 OF file PROMPT "Login"
 DEFINE BAR 2 OF file PROMPT "Config"
 DEFINE BAR 3 OF file PROMPT "User&Permission"
 ON SELECTION BAR 1 OF file ;
-	DO _4yf0pryh9 ;
+	DO _4yh0otr58 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF file ;
-	DO _4yf0pryha ;
+	DO _4yh0otr59 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF file ;
-	DO _4yf0pryhb ;
+	DO _4yh0otr5a ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP task MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -61,13 +61,13 @@ DEFINE BAR 2 OF task PROMPT "ขอซื้อ"
 DEFINE BAR 3 OF task PROMPT "ขอราคา"
 DEFINE BAR 4 OF task PROMPT "ขอซ่อม"
 ON SELECTION BAR 1 OF task ;
-	DO _4yf0pryhc ;
+	DO _4yh0otr5b ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF task ;
-	DO _4yf0pryhd ;
+	DO _4yh0otr5c ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF task ;
-	DO _4yf0pryhe ;
+	DO _4yh0otr5d ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP report MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -93,7 +93,7 @@ DEFINE BAR 2 OF ขอซอม PROMPT "แบบแสดงรายละเอียด"
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYH8  ON SELECTION PAD                            
+*       * _4YH0OTR57  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -104,14 +104,14 @@ DEFINE BAR 2 OF ขอซอม PROMPT "แบบแสดงรายละเอียด"
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryh8
+PROCEDURE _4yh0otr57
 CLEAR EVENTS
 SET SYSMENU TO DEFA
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYH9  ON SELECTION BAR 1 OF POPUP file            
+*       * _4YH0OTR58  ON SELECTION BAR 1 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -122,14 +122,14 @@ SET SYSMENU TO DEFA
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryh9
+PROCEDURE _4yh0otr58
 DO FORM login
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYHA  ON SELECTION BAR 2 OF POPUP file            
+*       * _4YH0OTR59  ON SELECTION BAR 2 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -140,14 +140,14 @@ DO FORM login
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryha
+PROCEDURE _4yh0otr59
 DO FORM config
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYHB  ON SELECTION BAR 3 OF POPUP file            
+*       * _4YH0OTR5A  ON SELECTION BAR 3 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -158,13 +158,13 @@ DO FORM config
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryhb
+PROCEDURE _4yh0otr5a
 MESSAGEBOX('Get User Form ',64,'Mockup')
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYHC  ON SELECTION BAR 1 OF POPUP task            
+*       * _4YH0OTR5B  ON SELECTION BAR 1 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -175,7 +175,7 @@ MESSAGEBOX('Get User Form ',64,'Mockup')
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryhc
+PROCEDURE _4yh0otr5b
 PUBLIC ticket
 
 DO FORM ticket  NAME ticket
@@ -183,7 +183,7 @@ DO FORM ticket  NAME ticket
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYHD  ON SELECTION BAR 2 OF POPUP task            
+*       * _4YH0OTR5C  ON SELECTION BAR 2 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -194,14 +194,14 @@ DO FORM ticket  NAME ticket
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryhd
+PROCEDURE _4yh0otr5c
 DO FORM PR
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YF0PRYHE  ON SELECTION BAR 3 OF POPUP task            
+*       * _4YH0OTR5D  ON SELECTION BAR 3 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -212,6 +212,6 @@ DO FORM PR
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yf0pryhe
+PROCEDURE _4yh0otr5d
 MESSAGEBOX("create/Update/delete price request ")
 

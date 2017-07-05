@@ -29,7 +29,7 @@
    LCLASTSETTALK = SET('TALK')
  SET TALK OFF
  _screen.Icon=SYS(2003)+"\icons\Extensions.ico"
- _screen.Caption="GL-AUTOBILLING(Build 25.04.2016)"
+ _screen.Caption="TICKET MANAGEMENT V.1"
  _screen.WindowState=2
  CSTARTPATH =FULLPATH(CURDIR())
  LCTXTFILE = 'INIT.TXT'

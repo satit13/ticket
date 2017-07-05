@@ -1,6 +1,9 @@
  CLOSE ALL
  CLEAR ALL 
  CLEAR ALL memory 
+ SET TALK OFF
+ SET CONSOLE OFF
+ 
  
  PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser
  
