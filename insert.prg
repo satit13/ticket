@@ -22,7 +22,7 @@ For initEnv = 1 To nfield
 	MFlage=0
 	If Upper(Alltrim(Fields(initEnv))) != 'ROWORDER'
 		Do Case
-		Case Type(Fields(initEnv)) = 'N'Or Type(Fields(initEnv)) = 'Y'   && Numeric or money
+		Case Type(Fields(initEnv)) = 'N' Or Type(Fields(initEnv)) = 'Y'   && Numeric or money
 			lcx="Nextchar=ALLTRIM(STR("+Fields(initEnv)+",15,2))"
 			Cflage=0
 			Tflage=0
@@ -47,7 +47,6 @@ For initEnv = 1 To nfield
 		&lcx
 && กรอง field ที่เป็น char และมีอักษร '  อยู่ใน field ทำให้ insert date Error ออกไปก่อน
 		If !Isnull(NextChar)
-
 			If ("'"$NextChar)
 				xnextchar=''
 				For initEnv = 1 To Len(Alltrim(NextChar))
@@ -76,7 +75,8 @@ For initEnv = 1 To nfield
 			Endif
 			lFiled=lFiled+NextChar
 		Case Tflage=1
-			If Isnull(NextChar)
+			If Isnull(NextChar) OR NextChar =='  /  /    '
+				*MESSAGEBOX(Nextchar)
 				NextChar='01/01/1900'
 			Endif
 			lFiled=lFiled+"'"+NextChar+"'"
