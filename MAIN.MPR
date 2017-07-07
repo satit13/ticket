@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 05/07/2017             MAIN.MPR               11:34:58  
+*       * 07/07/2017             MAIN.MPR               12:59:08  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,92 +26,84 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _4yh0otr53 OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
+DEFINE PAD _4yj0rtz5b OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
 	KEY ALT+F, ""
-DEFINE PAD _4yh0otr54 OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
+DEFINE PAD _4yj0rtz5c OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
 	KEY ALT+T, ""
-DEFINE PAD _4yh0otr55 OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
+DEFINE PAD _4yj0rtz5d OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _4yh0otr56 OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
+DEFINE PAD _4yj0rtz5e OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
 	KEY ALT+E, ""
-ON PAD _4yh0otr53 OF _MSYSMENU ACTIVATE POPUP file
-ON PAD _4yh0otr54 OF _MSYSMENU ACTIVATE POPUP task
-ON PAD _4yh0otr55 OF _MSYSMENU ACTIVATE POPUP report
-ON SELECTION PAD _4yh0otr56 OF _MSYSMENU ;
-	DO _4yh0otr57 ;
+ON PAD _4yj0rtz5b OF _MSYSMENU ACTIVATE POPUP file
+ON PAD _4yj0rtz5c OF _MSYSMENU ACTIVATE POPUP task
+ON PAD _4yj0rtz5d OF _MSYSMENU ACTIVATE POPUP report
+ON SELECTION PAD _4yj0rtz5e OF _MSYSMENU ;
+	DO _4yj0rtz5f ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP file MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF file PROMPT "Login"
-DEFINE BAR 2 OF file PROMPT "Config"
-DEFINE BAR 3 OF file PROMPT "User&Permission"
+DEFINE BAR 1 OF file PROMPT "Login" ;
+	PICTURE "53.png"
+DEFINE BAR 2 OF file PROMPT "Config" ;
+	PICTURE "31.png"
 ON SELECTION BAR 1 OF file ;
-	DO _4yh0otr58 ;
+	DO _4yj0rtz5g ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF file ;
-	DO _4yh0otr59 ;
-	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
-ON SELECTION BAR 3 OF file ;
-	DO _4yh0otr5a ;
+	DO _4yj0rtz5h ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP task MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF task PROMPT "Ticket"
-DEFINE BAR 2 OF task PROMPT "ขอซื้อ"
-DEFINE BAR 3 OF task PROMPT "ขอราคา"
-DEFINE BAR 4 OF task PROMPT "ขอซ่อม"
+DEFINE BAR 1 OF task PROMPT "Ticket" ;
+	PICTURE "create-ticket.ico"
+DEFINE BAR 2 OF task PROMPT "ขอซื้อ" ;
+	PICTURE "77.png"
 ON SELECTION BAR 1 OF task ;
-	DO _4yh0otr5b ;
+	DO _4yj0rtz5i ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF task ;
-	DO _4yh0otr5c ;
-	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
-ON SELECTION BAR 3 OF task ;
-	DO _4yh0otr5d ;
+	DO _4yj0rtz5j ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP report MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF report PROMPT "Ticket"
-DEFINE BAR 2 OF report PROMPT "ขอราคา"
-DEFINE BAR 3 OF report PROMPT "ขอซ่อม"
+DEFINE BAR 1 OF report PROMPT "Ticket" ;
+	PICTURE "unit-completed.ico"
 ON BAR 1 OF report ACTIVATE POPUP ticket
-ON BAR 2 OF report ACTIVATE POPUP ขอราคา
-ON BAR 3 OF report ACTIVATE POPUP ขอซอม
 
 DEFINE POPUP ticket MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF ticket PROMPT "Ticket แบบสรุป"
-DEFINE BAR 2 OF ticket PROMPT "แบบแสดงรายละเอียด"
-
-DEFINE POPUP ขอราคา MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF ขอราคา PROMPT "แบบสรุปตามวันที่"
-DEFINE BAR 2 OF ขอราคา PROMPT "แบบแสดงรายละเอียด"
-
-DEFINE POPUP ขอซอม MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF ขอซอม PROMPT "แบบสรุป"
-DEFINE BAR 2 OF ขอซอม PROMPT "แบบแสดงรายละเอียด"
+DEFINE BAR 1 OF ticket PROMPT "Ticket แบบสรุป" ;
+	PICTURE "create-ticket.ico"
+DEFINE BAR 2 OF ticket PROMPT "แบบแสดงรายละเอียด" ;
+	PICTURE "create-ticket.ico"
+ON SELECTION BAR 1 OF ticket ;
+	DO _4yj0rtz5k ;
+	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
+ON SELECTION BAR 2 OF ticket ;
+	DO _4yj0rtz5l ;
+	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR57  ON SELECTION PAD                            
+*       * _4YJ0RTZ5F  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  MAIN.MPR,            Record:   30           
+*       * From Menu:  MAIN.MPR,            Record:   17           
 *       * Called By:  ON SELECTION PAD                            
 *       * Prompt:     Exit                                        
 *       * Snippet:    1                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr57
+PROCEDURE _4yj0rtz5f
 CLEAR EVENTS
 SET SYSMENU TO DEFA
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR58  ON SELECTION BAR 1 OF POPUP file            
+*       * _4YJ0RTZ5G  ON SELECTION BAR 1 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -122,14 +114,14 @@ SET SYSMENU TO DEFA
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr58
+PROCEDURE _4yj0rtz5g
 DO FORM login
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR59  ON SELECTION BAR 2 OF POPUP file            
+*       * _4YJ0RTZ5H  ON SELECTION BAR 2 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -140,42 +132,25 @@ DO FORM login
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr59
+PROCEDURE _4yj0rtz5h
 DO FORM config
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR5A  ON SELECTION BAR 3 OF POPUP file            
+*       * _4YJ0RTZ5I  ON SELECTION BAR 1 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  MAIN.MPR,            Record:    7           
-*       * Called By:  ON SELECTION BAR 3 OF POPUP file            
-*       * Prompt:     User&Permission                             
+*       * From Menu:  MAIN.MPR,            Record:    9           
+*       * Called By:  ON SELECTION BAR 1 OF POPUP task            
+*       * Prompt:     Ticket                                      
 *       * Snippet:    4                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr5a
-MESSAGEBOX('Get User Form ',64,'Mockup')
-
-
-*       *********************************************************
-*       *                                                         
-*       * _4YH0OTR5B  ON SELECTION BAR 1 OF POPUP task            
-*       *                                                         
-*       * Procedure Origin:                                       
-*       *                                                         
-*       * From Menu:  MAIN.MPR,            Record:   10           
-*       * Called By:  ON SELECTION BAR 1 OF POPUP task            
-*       * Prompt:     Ticket                                      
-*       * Snippet:    5                                           
-*       *                                                         
-*       *********************************************************
-*
-PROCEDURE _4yh0otr5b
+PROCEDURE _4yj0rtz5i
 PUBLIC ticket
 
 DO FORM ticket  NAME ticket
@@ -183,35 +158,54 @@ DO FORM ticket  NAME ticket
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR5C  ON SELECTION BAR 2 OF POPUP task            
+*       * _4YJ0RTZ5J  ON SELECTION BAR 2 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  MAIN.MPR,            Record:   11           
+*       * From Menu:  MAIN.MPR,            Record:   10           
 *       * Called By:  ON SELECTION BAR 2 OF POPUP task            
 *       * Prompt:     ขอซื้อ                                      
+*       * Snippet:    5                                           
+*       *                                                         
+*       *********************************************************
+*
+PROCEDURE _4yj0rtz5j
+PUBLIC pr
+DO FORM PR NAME pr
+
+
+
+*       *********************************************************
+*       *                                                         
+*       * _4YJ0RTZ5K  ON SELECTION BAR 1 OF POPUP ticket          
+*       *                                                         
+*       * Procedure Origin:                                       
+*       *                                                         
+*       * From Menu:  MAIN.MPR,            Record:   15           
+*       * Called By:  ON SELECTION BAR 1 OF POPUP ticket          
+*       * Prompt:     Ticket แบบสรุป                              
 *       * Snippet:    6                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr5c
-DO FORM PR
-
+PROCEDURE _4yj0rtz5k
+PUBLIC report_project_sum
+DO FORM report_project_sum NAME report_Project_sum
 
 
 *       *********************************************************
 *       *                                                         
-*       * _4YH0OTR5D  ON SELECTION BAR 3 OF POPUP task            
+*       * _4YJ0RTZ5L  ON SELECTION BAR 2 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
-*       * From Menu:  MAIN.MPR,            Record:   12           
-*       * Called By:  ON SELECTION BAR 3 OF POPUP task            
-*       * Prompt:     ขอราคา                                      
+*       * From Menu:  MAIN.MPR,            Record:   16           
+*       * Called By:  ON SELECTION BAR 2 OF POPUP ticket          
+*       * Prompt:     แบบแสดงรายละเอียด                           
 *       * Snippet:    7                                           
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _4yh0otr5d
-MESSAGEBOX("create/Update/delete price request ")
-
+PROCEDURE _4yj0rtz5l
+PUBLIC report_project
+DO FORM report_project NAME report_Project

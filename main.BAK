@@ -1,6 +1,11 @@
  CLOSE ALL
  CLEAR ALL 
  CLEAR ALL memory 
+ SET TALK OFF
+ SET CONSOLE OFF
+ SET DATE DMY
+ SET DELETED ON 
+ 
  
  PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser
  

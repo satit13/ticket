@@ -3,6 +3,8 @@
  CLEAR ALL memory 
  SET TALK OFF
  SET CONSOLE OFF
+ SET DATE DMY
+ SET DELETED ON 
  
  
  PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser
@@ -31,7 +33,7 @@
  ON SHUTDOWN QUIT
    LCLASTSETTALK = SET('TALK')
  SET TALK OFF
- _screen.Icon=SYS(2003)+"\icons\Extensions.ico"
+ _screen.Icon="create-ticket.ico"
  _screen.Caption="TICKET MANAGEMENT V.1"
  _screen.WindowState=2
  CSTARTPATH =FULLPATH(CURDIR())
