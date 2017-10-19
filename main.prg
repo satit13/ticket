@@ -7,7 +7,7 @@
  SET DELETED ON 
  
  
- PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser
+ PUBLIC DEFAULT_DIR ,dbconn1,dbconn2,gsShortDate,gcUser,role
  
  gcUser = ""
  
@@ -34,7 +34,7 @@
    LCLASTSETTALK = SET('TALK')
  SET TALK OFF
  _screen.Icon="create-ticket.ico"
- _screen.Caption="TICKET MANAGEMENT V.1"
+ _screen.Caption="TICKET MANAGEMENT V.1(19.10.2017)"
  _screen.WindowState=2
  CSTARTPATH =FULLPATH(CURDIR())
  LCTXTFILE = 'INIT.TXT'

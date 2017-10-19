@@ -1,0 +1,52 @@
+CREATE CURSOR bcstkrequest (roworder int,;
+	docno char(30),;
+	docdate date,;
+	departcode char(30),;
+	isconfirm int,;
+	mydescription char(250),;
+	workman char(30),;
+	billstatus int,;
+	iscancel int,;
+	projectcode char(30),;
+	creatorcode char(30),;
+	craetedatetime datetime,;
+	lasteditorcode char(30),;
+	lasteditdatet datetime,;
+	confirmcode char(30),;
+	confirmdatetime datetime,;
+	cancelcode char(30),;
+	canceldatetime datetime,;
+	amount numeric(14,2))
+	
+INDEX on docno TAG docno addi
+
+CREATE CURSOR bcstkrequestsub (;
+	roworder int , ;
+	docno char(30),;
+	taxtype int,;
+	itemcode char(30),;
+	docdate date,;
+	departcode char(30),;
+	mydescription char(250),;
+	qty numeric(14,2),;
+	remainqty numeric(14,2),;
+	iscancel int,;
+	priority int,;
+	wantday int,;
+	unitcode char(30),;
+	oppositeunit char(30),;
+	oppositeqty numeric(14,2),;
+	itemname char(250),;
+	packingrate1 numeric(14,2),;
+	packingrate2 numeric(14,2))
+	
+INDEX on docno TAG docno addi
+
+SELECT bcstkrequest
+SET RELATION TO docno INTO bcstkrequestsub 
+
+SET SKIP TO Bcstkrequestsub
+	
+	
+	
+	

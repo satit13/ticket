@@ -76,7 +76,7 @@ For initEnv = 1 To nfield
 			lFiled=lFiled+NextChar
 		Case Tflage=1
 			If Isnull(NextChar) OR NextChar =='  /  /    '
-				MESSAGEBOX(Nextchar)
+				*MESSAGEBOX(Nextchar)
 				NextChar='01/01/1900'
 			Endif
 			lFiled=lFiled+"'"+NextChar+"'"
