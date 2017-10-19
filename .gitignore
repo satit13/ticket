@@ -6,3 +6,6 @@ BC_API.iml
 /sample-doc
 ticket.exe
 *.xls
+FOXUSER.*
+*.ico
+
