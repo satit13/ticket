@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/11/2017          SHORTPRITEM.MPR           00:44:29  
+*       * 21/11/2017          SHORTPRITEM.MPR           12:32:43  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -29,17 +29,17 @@ DEFINE BAR 1 OF shortcut PROMPT "ยกเลิกรายการ" ;
 DEFINE BAR 2 OF shortcut PROMPT "ใช้งาน" ;
 	SKIP FOR iscancel=0 or  (iscancel=1 and isNewcancel=0)
 ON SELECTION BAR 1 OF shortcut ;
-	DO _51v01l7n6 ;
+	DO _52c0qw0et ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\SHORTPRITEM" ,"MPX;MPR|FXP;PRG" ,"WHERE is SHORTPRITEM?")
 ON SELECTION BAR 2 OF shortcut ;
-	DO _51v01l7n7 ;
+	DO _52c0qw0eu ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\SHORTPRITEM" ,"MPX;MPR|FXP;PRG" ,"WHERE is SHORTPRITEM?")
 
 ACTIVATE POPUP shortcut
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L7N6  ON SELECTION BAR 1 OF POPUP shortcut        
+*       * _52C0QW0ET  ON SELECTION BAR 1 OF POPUP shortcut        
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -50,7 +50,7 @@ ACTIVATE POPUP shortcut
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l7n6
+PROCEDURE _52c0qw0et
 IF iscancel=0
 	REPLACE iscancel WITH 1
 	REPLACE remainqty WITH 0
@@ -63,7 +63,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L7N7  ON SELECTION BAR 2 OF POPUP shortcut        
+*       * _52C0QW0EU  ON SELECTION BAR 2 OF POPUP shortcut        
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -74,7 +74,7 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l7n7
+PROCEDURE _52c0qw0eu
 IF iscancel=1 AND isnewcancel =1 && cancel before working
 	REPLACE iscancel WITH 0
 	REPLACE remainqty WITH qty-confirmqty

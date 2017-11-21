@@ -1,6 +1,6 @@
 *       *********************************************************
 *       *                                                         
-*       * 04/11/2017             MAIN.MPR               00:44:28  
+*       * 21/11/2017             MAIN.MPR               12:32:43  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
@@ -26,19 +26,19 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _51v01l78n OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
+DEFINE PAD _52c0qw00y OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
 	KEY ALT+F, ""
-DEFINE PAD _51v01l78o OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
+DEFINE PAD _52c0qw00z OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
 	KEY ALT+T, ""
-DEFINE PAD _51v01l78p OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
+DEFINE PAD _52c0qw010 OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _51v01l78q OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
+DEFINE PAD _52c0qw011 OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
 	KEY ALT+E, ""
-ON PAD _51v01l78n OF _MSYSMENU ACTIVATE POPUP file
-ON PAD _51v01l78o OF _MSYSMENU ACTIVATE POPUP task
-ON PAD _51v01l78p OF _MSYSMENU ACTIVATE POPUP report
-ON SELECTION PAD _51v01l78q OF _MSYSMENU ;
-	DO _51v01l78r ;
+ON PAD _52c0qw00y OF _MSYSMENU ACTIVATE POPUP file
+ON PAD _52c0qw00z OF _MSYSMENU ACTIVATE POPUP task
+ON PAD _52c0qw010 OF _MSYSMENU ACTIVATE POPUP report
+ON SELECTION PAD _52c0qw011 OF _MSYSMENU ;
+	DO _52c0qw012 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP file MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -49,13 +49,13 @@ DEFINE BAR 2 OF file PROMPT "Config" ;
 	PICTURE "31.png"
 DEFINE BAR 3 OF file PROMPT "About"
 ON SELECTION BAR 1 OF file ;
-	DO _51v01l78s ;
+	DO _52c0qw013 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF file ;
-	DO _51v01l78t ;
+	DO _52c0qw014 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF file ;
-	DO _51v01l78u ;
+	DO _52c0qw015 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP task MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -68,13 +68,13 @@ DEFINE BAR 3 OF task PROMPT "อนุมัติใบขอซื้อ" ;
 	SKIP FOR allt(lower(role)) <> 'admin' and allt(lower(role)) <> 'manager'  and allt(lower(role)) <> 'md'   and allt(lower(role)) <> 'pmr'   and allt(lower(role)) <> 'gmr'  ;
 	PICTURE "001_06.ico"
 ON SELECTION BAR 1 OF task ;
-	DO _51v01l78v ;
+	DO _52c0qw016 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF task ;
-	DO _51v01l78w ;
+	DO _52c0qw017 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF task ;
-	DO _51v01l78x ;
+	DO _52c0qw018 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP report MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -90,19 +90,19 @@ DEFINE BAR 2 OF ticket PROMPT "Ticket แบบแสดงรายละเอียด" ;
 DEFINE BAR 3 OF ticket PROMPT "รายงานด้านรายได้" ;
 	PICTURE "surveys.ico"
 ON SELECTION BAR 1 OF ticket ;
-	DO _51v01l78y ;
+	DO _52c0qw019 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF ticket ;
-	DO _51v01l78z ;
+	DO _52c0qw01a ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF ticket ;
-	DO _51v01l790 ;
+	DO _52c0qw01b ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78R  ON SELECTION PAD                            
+*       * _52C0QW012  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -113,7 +113,7 @@ ON SELECTION BAR 3 OF ticket ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78r
+PROCEDURE _52c0qw012
 IF MESSAGEBOX("Close program?",36,'Confirm Exist')=6
 	CLEAR EVENTS
 	SET SYSMENU TO DEFAULT
@@ -124,7 +124,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78S  ON SELECTION BAR 1 OF POPUP file            
+*       * _52C0QW013  ON SELECTION BAR 1 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -135,14 +135,14 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78s
+PROCEDURE _52c0qw013
 DO FORM login
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78T  ON SELECTION BAR 2 OF POPUP file            
+*       * _52C0QW014  ON SELECTION BAR 2 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -153,14 +153,14 @@ DO FORM login
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78t
+PROCEDURE _52c0qw014
 DO FORM config
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78U  ON SELECTION BAR 3 OF POPUP file            
+*       * _52C0QW015  ON SELECTION BAR 3 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -171,7 +171,7 @@ DO FORM config
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78u
+PROCEDURE _52c0qw015
 MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 	"Current User : "+UPPER(ALLTRIM(UPPER(userLogin))),64,'About User profile')
 
@@ -179,7 +179,7 @@ MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78V  ON SELECTION BAR 1 OF POPUP task            
+*       * _52C0QW016  ON SELECTION BAR 1 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -190,7 +190,7 @@ MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78v
+PROCEDURE _52c0qw016
 PUBLIC ticket
 
 DO FORM ticket  NAME ticket
@@ -198,7 +198,7 @@ DO FORM ticket  NAME ticket
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78W  ON SELECTION BAR 2 OF POPUP task            
+*       * _52C0QW017  ON SELECTION BAR 2 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -209,7 +209,7 @@ DO FORM ticket  NAME ticket
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78w
+PROCEDURE _52c0qw017
 PUBLIC pr
 DO FORM PR NAME pr
 
@@ -217,7 +217,7 @@ DO FORM PR NAME pr
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78X  ON SELECTION BAR 3 OF POPUP task            
+*       * _52C0QW018  ON SELECTION BAR 3 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -228,14 +228,14 @@ DO FORM PR NAME pr
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78x
+PROCEDURE _52c0qw018
 PUBLIC prmon
 DO FORM pr-mon NAME prmon
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78Y  ON SELECTION BAR 1 OF POPUP ticket          
+*       * _52C0QW019  ON SELECTION BAR 1 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -246,14 +246,14 @@ DO FORM pr-mon NAME prmon
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78y
+PROCEDURE _52c0qw019
 PUBLIC report_project_sum
 DO FORM report_project_sum NAME report_Project_sum
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L78Z  ON SELECTION BAR 2 OF POPUP ticket          
+*       * _52C0QW01A  ON SELECTION BAR 2 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -264,14 +264,14 @@ DO FORM report_project_sum NAME report_Project_sum
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l78z
+PROCEDURE _52c0qw01a
 PUBLIC report_project
 DO FORM report_project NAME report_Project
 
 
 *       *********************************************************
 *       *                                                         
-*       * _51V01L790  ON SELECTION BAR 3 OF POPUP ticket          
+*       * _52C0QW01B  ON SELECTION BAR 3 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -282,6 +282,6 @@ DO FORM report_project NAME report_Project
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _51v01l790
+PROCEDURE _52c0qw01b
 PUBLIC report_project_sale
 DO FORM report_project_sale NAME report_Project_sale

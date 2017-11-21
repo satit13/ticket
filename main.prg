@@ -34,7 +34,7 @@
    LCLASTSETTALK = SET('TALK')
  SET TALK OFF
  _screen.Icon="create-ticket.ico"
- _screen.Caption="TICKET MANAGEMENT V.1(04.11.2017)-01:05"
+ _screen.Caption="TICKET MANAGEMENT V.1(21.11.2017)-11:57"
  _screen.WindowState=2
  CSTARTPATH =FULLPATH(CURDIR())
  LCTXTFILE = 'INIT.TXT'
