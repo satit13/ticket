@@ -1,12 +1,12 @@
 *       *********************************************************
 *       *                                                         
-*       * 07/09/2018             MAIN.MPR               11:29:13  
+*       * 13/08/2019             MAIN.MPR               23:23:42  
 *       *                                                         
 *       *********************************************************
 *       *                                                         
 *       * Author's Name                                           
 *       *                                                         
-*       * Copyright (C) 2018 Company Name                         
+*       * Copyright (C) 2019 Company Name                         
 *       * Address                                                 
 *       * City,     Zip                                           
 *       *                                                         
@@ -26,25 +26,25 @@
 SET SYSMENU TO
 SET SYSMENU AUTOMATIC
 
-DEFINE PAD _5ag0omc9g OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
+DEFINE PAD _5jy1e56rx OF _MSYSMENU PROMPT "File" COLOR SCHEME 3 ;
 	KEY ALT+F, ""
-DEFINE PAD _5ag0omc9h OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
+DEFINE PAD _5jy1e56ry OF _MSYSMENU PROMPT "Task" COLOR SCHEME 3 ;
 	KEY ALT+T, ""
-DEFINE PAD _5ag0omc9i OF _MSYSMENU PROMPT "Purchase" COLOR SCHEME 3 ;
+DEFINE PAD _5jy1e56rz OF _MSYSMENU PROMPT "Purchase" COLOR SCHEME 3 ;
 	KEY ALT+P, ""
-DEFINE PAD _5ag0omc9j OF _MSYSMENU PROMPT "Account" COLOR SCHEME 3 ;
-	KEY ALT+A, ""
-DEFINE PAD _5ag0omc9k OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
+DEFINE PAD _5jy1e56s0 OF _MSYSMENU PROMPT "Util" COLOR SCHEME 3 ;
+	KEY ALT+U, ""
+DEFINE PAD _5jy1e56s1 OF _MSYSMENU PROMPT "Report" COLOR SCHEME 3 ;
 	KEY ALT+R, ""
-DEFINE PAD _5ag0omc9l OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
+DEFINE PAD _5jy1e56s2 OF _MSYSMENU PROMPT "Exit" COLOR SCHEME 3 ;
 	KEY ALT+E, ""
-ON PAD _5ag0omc9g OF _MSYSMENU ACTIVATE POPUP file
-ON PAD _5ag0omc9h OF _MSYSMENU ACTIVATE POPUP task
-ON PAD _5ag0omc9i OF _MSYSMENU ACTIVATE POPUP purchase
-ON PAD _5ag0omc9j OF _MSYSMENU ACTIVATE POPUP account
-ON PAD _5ag0omc9k OF _MSYSMENU ACTIVATE POPUP report
-ON SELECTION PAD _5ag0omc9l OF _MSYSMENU ;
-	DO _5ag0omc9m ;
+ON PAD _5jy1e56rx OF _MSYSMENU ACTIVATE POPUP file
+ON PAD _5jy1e56ry OF _MSYSMENU ACTIVATE POPUP task
+ON PAD _5jy1e56rz OF _MSYSMENU ACTIVATE POPUP purchase
+ON PAD _5jy1e56s0 OF _MSYSMENU ACTIVATE POPUP util
+ON PAD _5jy1e56s1 OF _MSYSMENU ACTIVATE POPUP report
+ON SELECTION PAD _5jy1e56s2 OF _MSYSMENU ;
+	DO _5jy1e56s3 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP file MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -55,13 +55,13 @@ DEFINE BAR 2 OF file PROMPT "Config" ;
 	PICTURE "31.png"
 DEFINE BAR 3 OF file PROMPT "About"
 ON SELECTION BAR 1 OF file ;
-	DO _5ag0omc9n ;
+	DO _5jy1e56s4 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF file ;
-	DO _5ag0omc9o ;
+	DO _5jy1e56s5 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF file ;
-	DO _5ag0omc9p ;
+	DO _5jy1e56s6 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP task MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -74,13 +74,13 @@ DEFINE BAR 3 OF task PROMPT "อนุมัติใบขอซื้อ" ;
 	SKIP FOR allt(lower(role)) <> 'admin' and allt(lower(role)) <> 'manager'  and allt(lower(role)) <> 'md'   and allt(lower(role)) <> 'pmr'   and allt(lower(role)) <> 'gmr'  ;
 	PICTURE "001_06.ico"
 ON SELECTION BAR 1 OF task ;
-	DO _5ag0omc9q ;
+	DO _5jy1e56s7 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF task ;
-	DO _5ag0omc9r ;
+	DO _5jy1e56s8 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF task ;
-	DO _5ag0omc9s ;
+	DO _5jy1e56s9 ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP purchase MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -91,16 +91,17 @@ DEFINE BAR 2 OF purchase PROMPT "Approved Cancel" ;
 	SKIP FOR allt(lower(role)) <> 'admin' and allt(lower(role)) <> 'manager'  and allt(lower(role)) <> 'md'   and allt(lower(role)) <> 'pmr'   and allt(lower(role)) <> 'gmr'  and allt(lower(role))<>'by' ;
 	PICTURE "001_30.ico"
 ON SELECTION BAR 1 OF purchase ;
-	DO _5ag0omc9t ;
+	DO _5jy1e56sa ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF purchase ;
-	DO _5ag0omc9u ;
+	DO _5jy1e56sb ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
-DEFINE POPUP account MARGIN RELATIVE SHADOW COLOR SCHEME 4
-DEFINE BAR 1 OF account PROMPT "ยกเลิกการ Confirm"
-ON SELECTION BAR 1 OF account ;
-	DO _5ag0omc9v ;
+DEFINE POPUP util MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF util PROMPT "ยกเลิกการ Confirm" ;
+	SKIP FOR allt(lower(role)) <> 'admin'  and allt(lower(role)) <> 'md'  
+ON SELECTION BAR 1 OF util ;
+	DO _5jy1e56sc ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 DEFINE POPUP report MARGIN RELATIVE SHADOW COLOR SCHEME 4
@@ -116,19 +117,19 @@ DEFINE BAR 2 OF ticket PROMPT "Ticket แบบแสดงรายละเอียด" ;
 DEFINE BAR 3 OF ticket PROMPT "รายงานด้านรายได้" ;
 	PICTURE "surveys.ico"
 ON SELECTION BAR 1 OF ticket ;
-	DO _5ag0omc9w ;
+	DO _5jy1e56sd ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 2 OF ticket ;
-	DO _5ag0omc9x ;
+	DO _5jy1e56se ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 ON SELECTION BAR 3 OF ticket ;
-	DO _5ag0omc9y ;
+	DO _5jy1e56sf ;
 	IN LOCFILE("01.TD-TICKETMANAGEMENT\MAIN" ,"MPX;MPR|FXP;PRG" ,"WHERE is MAIN?")
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9M  ON SELECTION PAD                            
+*       * _5JY1E56S3  ON SELECTION PAD                            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -139,7 +140,7 @@ ON SELECTION BAR 3 OF ticket ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9m
+PROCEDURE _5jy1e56s3
 IF MESSAGEBOX("Close program?",36,'Confirm Exist')=6
 	CLEAR EVENTS
 	SET SYSMENU TO DEFAULT
@@ -150,7 +151,7 @@ ENDIF
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9N  ON SELECTION BAR 1 OF POPUP file            
+*       * _5JY1E56S4  ON SELECTION BAR 1 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -161,14 +162,14 @@ ENDIF
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9n
+PROCEDURE _5jy1e56s4
 DO FORM login
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9O  ON SELECTION BAR 2 OF POPUP file            
+*       * _5JY1E56S5  ON SELECTION BAR 2 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -179,14 +180,14 @@ DO FORM login
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9o
+PROCEDURE _5jy1e56s5
 DO FORM config
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9P  ON SELECTION BAR 3 OF POPUP file            
+*       * _5JY1E56S6  ON SELECTION BAR 3 OF POPUP file            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -197,7 +198,7 @@ DO FORM config
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9p
+PROCEDURE _5jy1e56s6
 MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 	"Current User : "+UPPER(ALLTRIM(UPPER(userLogin))),64,'About User profile')
 
@@ -205,7 +206,7 @@ MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9Q  ON SELECTION BAR 1 OF POPUP task            
+*       * _5JY1E56S7  ON SELECTION BAR 1 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -216,7 +217,7 @@ MESSAGEBOX("Role : "+UPPER(ALLTRIM(UPPER(role))) + CHR(13)+CHR(13) + ;
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9q
+PROCEDURE _5jy1e56s7
 PUBLIC ticket
 
 DO FORM ticket  NAME ticket
@@ -224,7 +225,7 @@ DO FORM ticket  NAME ticket
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9R  ON SELECTION BAR 2 OF POPUP task            
+*       * _5JY1E56S8  ON SELECTION BAR 2 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -235,7 +236,7 @@ DO FORM ticket  NAME ticket
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9r
+PROCEDURE _5jy1e56s8
 PUBLIC pr
 DO FORM PR NAME pr
 
@@ -243,7 +244,7 @@ DO FORM PR NAME pr
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9S  ON SELECTION BAR 3 OF POPUP task            
+*       * _5JY1E56S9  ON SELECTION BAR 3 OF POPUP task            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -254,7 +255,7 @@ DO FORM PR NAME pr
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9s
+PROCEDURE _5jy1e56s9
 PUBLIC prmon
 *DO FORM pr-mon NAME prmon
 DO FORM pr-approve NAME prmon
@@ -263,7 +264,7 @@ DO FORM pr-approve NAME prmon
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9T  ON SELECTION BAR 1 OF POPUP purchase        
+*       * _5JY1E56SA  ON SELECTION BAR 1 OF POPUP purchase        
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -274,7 +275,7 @@ DO FORM pr-approve NAME prmon
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9t
+PROCEDURE _5jy1e56sa
 PUBLIC appusestock
 DO FORM appusestock NAME appusestock
 
@@ -284,7 +285,7 @@ DO FORM appusestock NAME appusestock
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9U  ON SELECTION BAR 2 OF POPUP purchase        
+*       * _5JY1E56SB  ON SELECTION BAR 2 OF POPUP purchase        
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -295,32 +296,31 @@ DO FORM appusestock NAME appusestock
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9u
+PROCEDURE _5jy1e56sb
 DO FORM approved-cancel NAME appc
 
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9V  ON SELECTION BAR 1 OF POPUP account         
+*       * _5JY1E56SC  ON SELECTION BAR 1 OF POPUP util            
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
 *       * From Menu:  MAIN.MPR,            Record:   19           
-*       * Called By:  ON SELECTION BAR 1 OF POPUP account         
+*       * Called By:  ON SELECTION BAR 1 OF POPUP util            
 *       * Prompt:     ยกเลิกการ Confirm                           
 *       * Snippet:    10                                          
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9v
-MESSAGEBOX('Cancel so ')
-
+PROCEDURE _5jy1e56sc
+DO FORM unconfirm-so NAME unconfirm
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9W  ON SELECTION BAR 1 OF POPUP ticket          
+*       * _5JY1E56SD  ON SELECTION BAR 1 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -331,14 +331,14 @@ MESSAGEBOX('Cancel so ')
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9w
+PROCEDURE _5jy1e56sd
 PUBLIC report_project_sum
 DO FORM report_project_sum NAME report_Project_sum
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9X  ON SELECTION BAR 2 OF POPUP ticket          
+*       * _5JY1E56SE  ON SELECTION BAR 2 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -349,14 +349,14 @@ DO FORM report_project_sum NAME report_Project_sum
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9x
+PROCEDURE _5jy1e56se
 PUBLIC report_project
 DO FORM report_project NAME report_Project
 
 
 *       *********************************************************
 *       *                                                         
-*       * _5AG0OMC9Y  ON SELECTION BAR 3 OF POPUP ticket          
+*       * _5JY1E56SF  ON SELECTION BAR 3 OF POPUP ticket          
 *       *                                                         
 *       * Procedure Origin:                                       
 *       *                                                         
@@ -367,6 +367,6 @@ DO FORM report_project NAME report_Project
 *       *                                                         
 *       *********************************************************
 *
-PROCEDURE _5ag0omc9y
+PROCEDURE _5jy1e56sf
 PUBLIC report_project_sale
 DO FORM report_project_sale NAME report_Project_sale
